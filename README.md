@@ -32,7 +32,7 @@ I've structured this so that, if you'd like to tackle this project too, you can.
 -  Users can have followers
 -  Users can follow other users
 
-### Step 1 - Backend Schema
+### Step 1 - Backend Schema (System Design)
 
 To create the backend schema, I first considered the information that I definitely need to have: Articles and Users. Next, I thought about what each article and user should have. I broke it down based on the information that is available on a regular medium article:
 
@@ -111,4 +111,9 @@ This leaves us with four total tables:
 | PageUrl (STRING)       |
 
 Here's an image of the schema with arrows:
+
 <img src="./Schema.png" alt="schema">
+
+Next, I have to choose between a SQL and a NoSQL database. It makes a lot of sense to use a NoSQL database like MongoDB for an application like this because there is probably a heavier read to write ratio as users are more likely to load articles rather than write or edit them. But, in my particular case, a SQL database is a good choice as well. I don't have to optimize read times because I don't have a heavy focus on user to user interaction and, with my schema, I am not really loading much information per article. Also, if I use a SQL database, I can utilize relationships to have more structured data. In this case it'd be fine to go with either, but I'm opting in for SQL because the advantages of NoSQL do not outweigh the advantages of SQL in my particular approach of this medium clone.
+
+I can also use an external storage sevice like AWS to store all my images, but I'll offload that and just use free stock photo image urls.
