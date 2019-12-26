@@ -51,6 +51,7 @@ To create the backend schema, I first considered the information that I definite
 | ID (Primary Key - INT)   |
 | Password (HASHED STRING) |
 | ImgUrl (STRING)          |
+| Email (STRING)           |
 
 We also have to add another piece of data here: the organization the article is associated with. To do this, we replace PostedOn with a foreign key, and create another table:
 
@@ -76,7 +77,7 @@ Next, we have to consider relationships. I've already added a UserId to articles
 | ----------------------------- |
 | ID (Primary Key - INT)        |
 | User1Id (Secondary Key - INT) |
-| User2Id (Secondary Key - Int) |
+| User2Id (Secondary Key - INT) |
 
 This leaves us with four total tables:
 
@@ -95,15 +96,19 @@ This leaves us with four total tables:
 | ID (Primary Key - INT)   |
 | Password (HASHED STRING) |
 | ImgUrl (STRING)          |
+| Email (STRING)           |
 
 | UserUser                      |
 | ----------------------------- |
 | ID (Primary Key - INT)        |
 | User1Id (Secondary Key - INT) |
-| User2Id (Secondary Key - Int) |
+| User2Id (Secondary Key - INT) |
 
 | Organization           |
 | ---------------------- |
 | ID (Primary Key - INT) |
 | ImgUrl (STRING)        |
 | PageUrl (STRING)       |
+
+Here's an image of the schema with arrows:
+<img src="./Schema.png" alt="schema">
