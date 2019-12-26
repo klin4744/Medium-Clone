@@ -1,16 +1,16 @@
-.SmallContentContainer img{
+.SmallContentContainer img {
    height: 100px !important;
    width: 100px !important;
    margin-bottom: 16px;
 }
-.SmallContentContainer h3{
+.SmallContentContainer h3 {
    font-size: 14px;
    font-family: 'Proza Libre', sans-serif;
    font-weight: 600 !important;
 }
 
-.SmallContentContainer p{
-   color: rgb(78, 78, 78,0.62) !important;
-   font-size: 13px;
-   margin-bottom: 0px ;
+.SmallContentContainer p {
+   color: rgb(78, 78, 78, 0.62);
+   font-size: 14px;
+   margin-bottom: 0px;
 }

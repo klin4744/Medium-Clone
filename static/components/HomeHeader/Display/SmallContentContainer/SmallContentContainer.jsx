@@ -1,5 +1,5 @@
 import React from 'react';
-import "./SmallContentContainer.css"
+import './SmallContentContainer.css';
 
 export default function SmallContentContainer(props) {
    return (
@@ -13,8 +13,8 @@ export default function SmallContentContainer(props) {
             <small>
                {props.author} in {props.location}
             </small>
-            <p>{props.date + ' • ' + props.time + 'min read'}</p>
+            <p>{props.date + ' • ' + props.time + ' min read'}</p>
          </div>
       </div>
    );
-};
+}

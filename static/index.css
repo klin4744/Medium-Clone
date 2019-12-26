@@ -1,3 +1,18 @@
-body{
+body {
    font-family: 'Source Serif Pro', serif;
+}
+.sticky {
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100% !important;
+   height: 50px;
+   z-index: 2;
+   line-height: 50px;
+}
+.border-bottom {
+   border-bottom: 1px solid #9b9898;
+}
+.bg-white {
+   background-color: white !important;
 }

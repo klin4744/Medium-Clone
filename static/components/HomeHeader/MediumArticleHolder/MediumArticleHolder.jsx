@@ -11,7 +11,7 @@ export default function MediumArticleHolder(props) {
             <small>
                {props.author} in {props.location}
             </small>
-            <p>{props.date + ' • ' + props.time + 'min read'}</p>
+            <p>{props.date + ' • ' + props.time + ' min read'}</p>
          </div>
       </div>
    );

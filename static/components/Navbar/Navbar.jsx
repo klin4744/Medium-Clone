@@ -4,8 +4,8 @@ import BottomHalf from './BottomHalf/BottomHalf';
 
 export default function Navbar() {
    return (
-      <div className='w-75 mx-auto'>
-         <nav className='Navbar navbar bg-white navbar-light navbar-expand-lg'>
+      <div className='w-100'>
+         <nav className='Navbar navbar bg-white navbar-light navbar-expand-lg w-75 mx-auto'>
             <a className='navbar-brand'>Medium</a>
             <ul className='navbar-nav ml-auto row'>
                <li className='nav-item col-3'>

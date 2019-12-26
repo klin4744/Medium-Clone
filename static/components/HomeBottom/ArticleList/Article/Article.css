@@ -1,0 +1,28 @@
+.Article {
+   margin-top: 20px;
+}
+.Article img {
+   height: 152px;
+   max-width: 100%;
+}
+
+.Article h3 {
+   font-size: 18px;
+   font-family: 'Proza Libre', sans-serif;
+   font-weight: 600 !important;
+}
+
+.Article p {
+   color: rgb(78, 78, 78, 0.62);
+   font-size: 14px;
+   margin-bottom: 0px;
+}
+.Article small.topic-text {
+   color: rgb(78, 78, 78, 0.62);
+   text-transform: uppercase;
+}
+
+.Article p.author-text {
+   color: black;
+   margin-bottom: 0px;
+}
