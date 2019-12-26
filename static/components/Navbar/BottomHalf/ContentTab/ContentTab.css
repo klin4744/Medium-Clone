@@ -1,0 +1,12 @@
+.ContentTab{
+   text-transform: uppercase;
+   font-size: 14px;
+   margin: 0 5px;
+   color: rgb(78, 78, 78,0.54) !important;
+   /* letter-spacing: 2px !important; */
+   font-family: 'Proza Libre', sans-serif !important;
+}
+.ContentTab:hover{
+   cursor: pointer;
+   color: rgba(0,0,0) !important;
+}

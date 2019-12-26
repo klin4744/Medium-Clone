@@ -1,0 +1,17 @@
+.HomeHeader  {
+   width: 85%;
+   margin: 30px auto 0 auto;
+}
+
+.HomeHeader .border-bottom {
+   width: 95%;
+   margin: 30px auto 0 auto;
+   border-bottom: 1px solid rgba(0,0,0,.15);
+}
+#editor{
+   margin-left: 85%;
+   text-transform: uppercase;
+   font-size: 14px;
+   color: #03a87c !important;
+   font-family: 'Proza Libre', sans-serif !important;
+}

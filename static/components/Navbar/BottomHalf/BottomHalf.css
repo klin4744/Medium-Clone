@@ -1,0 +1,21 @@
+.BottomHalf {
+   width: 95%;
+}
+.BottomHalf .slick-arrow:before {
+   color: black;
+   /* background-color: black; */
+}
+.BottomHalf .slick-next:before {
+   content: '>';
+   line-height: 0;
+}
+.BottomHalf .slick-prev:before {
+   content: '<';
+   margin: auto;
+   line-height: 0;
+}
+
+.BottomHalf div.slick-slide {
+   width: auto !important;
+   margin: 0 6px !important;
+}
