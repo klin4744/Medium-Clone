@@ -70,6 +70,7 @@ func main() {
 	stmt, err = db.Prepare(`
 	CREATE Table Organization(
 		id SERIAL PRIMARY KEY NOT NULL,
+		name     VARCHAR(200) NOT NULL,
 		imgUrl   VARCHAR(200) NOT NULL,
 		pageUrl  VARCHAR(200) NOT NULL
 	)
