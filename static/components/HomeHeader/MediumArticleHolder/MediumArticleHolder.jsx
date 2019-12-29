@@ -4,7 +4,7 @@ import './MediumArticleHolder.css';
 export default function MediumArticleHolder(props) {
    return (
       <div className={`col-${props.size}  MediumArticleHolder`}>
-         <img src={props.imgSrc} />
+         <img src={props.imgUrl} />
          <div className='card-content'>
             <h3>{props.title}</h3>
             <p>{props.content.slice(0, 200) + '...'}</p>

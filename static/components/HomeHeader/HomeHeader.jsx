@@ -20,27 +20,27 @@ class HomeHeader extends React.Component {
    render() {
       return (
          <div className='row HomeHeader'>
-            <MediumArticleHolder
+            { this.state.articles.length ? <MediumArticleHolder
                size='4'
-               imgSrc='https://miro.medium.com/max/6528/1*Kd0UGiDvgooFooCy28rs8Q.jpeg'
-               title='The Top 10 Things Wrong with JavaScript'
-               content='JavaScript has a reputation for being one of the worst programming languages in existence, and for good reasons! JavaScript is easy to learn and easy to use, except when it’s not. There are many “gotchas” that can trip you up. Below, I glean some of the best from various online sources…'
-               date='Dec 17, 2018'
-               time='12'
-               author='Milap Neupane'
-               location='freeCodeCamp.org'
-            />
+               imgUrl={this.state.articles[0].Articleimgurl}
+               title={this.state.articles[0].Title}
+               content={this.state.articles[0].Content}
+               date={this.state.articles[0].Dateposted}
+               time={this.state.articles[0].Content.length % 20}
+               author={this.state.articles[0].Authorname}
+               location={this.state.articles[0].Orgname}
+            /> : <></>}
             <Display articles={this.state.articles} />
-            <MediumArticleHolder
+            {this.state.articles.length ? <MediumArticleHolder
                size='4'
-               imgSrc='https://miro.medium.com/max/6528/1*Kd0UGiDvgooFooCy28rs8Q.jpeg'
-               title='The Top 10 Things Wrong with JavaScript'
-               content='JavaScript has a reputation for being one of the worst programming languages in existence, and for good reasons! JavaScript is easy to learn and easy to use, except when it’s not. There are many “gotchas” that can trip you up. Below, I glean some of the best from various online sources…'
-               date='Dec 17, 2018'
-               time='12'
-               author='Milap Neupane'
-               location='freeCodeCamp.org'
-            />
+               imgUrl={this.state.articles[2].Articleimgurl}
+               title={this.state.articles[2].Title}
+               content={this.state.articles[2].Content}
+               date={this.state.articles[2].Dateposted}
+               time={this.state.articles[2].Content.length % 20}
+               author={this.state.articles[2].Authorname}
+               location={this.state.articles[2].Orgname}
+            /> : <></>}
             <a id='editor'>See Editor's Picks ></a>
             <div className='border-bottom'></div>
          </div>

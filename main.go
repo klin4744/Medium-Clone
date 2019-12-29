@@ -80,5 +80,5 @@ func handleArticle(w http.ResponseWriter, req *http.Request) {
 func main() {
 	http.Handle("/", http.FileServer(http.Dir("./static")))
 	http.HandleFunc("/api/articles", handleArticle)
-	http.ListenAndServe(":1000", nil)
+	http.ListenAndServe(":2000", nil)
 }
