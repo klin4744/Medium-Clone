@@ -22,6 +22,7 @@ type Article struct {
 	Articleimgurl      string
 	Dateposted         string
 	Claps              int
+	Topic 				 string
 	Authorimgurl       string
 	Authorname         string
 	Authoremail        string
@@ -29,7 +30,7 @@ type Article struct {
 	Orgname            string
 }
 
-func handleArticle(w http.ResponseWriter, req *http.Request) {
+func handleArticleRoute(w http.ResponseWriter, req *http.Request) {
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatalln(err)
@@ -40,7 +41,7 @@ func handleArticle(w http.ResponseWriter, req *http.Request) {
 		var articles []*Article
 		sqlStatement := `SELECT article.id, article.title, article.userid, article.content,
 							  article.organizationid, article.imgurl as articleImgURL, article.dateposted,
-							  article.claps, author.imgurl as authorImgURL, author.name as authorName,
+							  article.claps, article.topic, author.imgurl as authorImgURL, author.name as authorName,
 							  author.emailaddress as authorEmail, organization.imgurl as organizationImgURL,
 							  organization.name as orgname
 							  FROM  article
@@ -56,7 +57,7 @@ func handleArticle(w http.ResponseWriter, req *http.Request) {
 		}
 		for rows.Next() {
 			a := new(Article)
-			err := rows.Scan(&a.Id, &a.Title, &a.Userid, &a.Content, &a.Organizationid, &a.Articleimgurl, &a.Dateposted, &a.Claps, &a.Authorimgurl, &a.Authorname, &a.Authoremail, &a.Organizationimgurl, &a.Orgname)
+			err := rows.Scan(&a.Id, &a.Title, &a.Userid, &a.Content, &a.Organizationid, &a.Articleimgurl, &a.Dateposted, &a.Claps, &a.Topic, &a.Authorimgurl, &a.Authorname, &a.Authoremail, &a.Organizationimgurl, &a.Orgname)
 			if err != nil {
 				log.Fatalln(err)
 			}
@@ -77,8 +78,57 @@ func handleArticle(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
+func handleArticleTop(w http.ResponseWriter, req *http.Request){
+	if req.Method == "GET" {
+		db, err := sql.Open("postgres", connStr)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		defer db.Close()
+		sqlStatement := `
+							  SELECT article.id, article.title, article.userid, article.content,
+							  article.organizationid, article.imgurl as articleImgURL, article.dateposted,
+							  article.claps, article.topic, author.imgurl as authorImgURL, author.name as authorName,
+							  author.emailaddress as authorEmail, organization.imgurl as organizationImgURL,
+							  organization.name as orgname
+							  FROM  article
+							  FULL JOIN  organization
+							  	ON article.organizationid = organization.id
+							  FULL JOIN author
+								ON article.userid = author.id
+							  ORDER BY
+							  	article.claps DESC
+							  LIMIT 3
+
+		`
+		rows, err := db.Query(sqlStatement)
+		defer rows.Close()
+		if err != nil {
+			log.Fatalln(err)
+		}
+		var articles []*Article
+		for rows.Next() {
+			a := new(Article)
+			err := rows.Scan(&a.Id, &a.Title, &a.Userid, &a.Content, &a.Organizationid, &a.Articleimgurl, &a.Dateposted, &a.Claps, &a.Topic, &a.Authorimgurl, &a.Authorname, &a.Authoremail, &a.Organizationimgurl, &a.Orgname)
+			if err != nil {
+				log.Fatalln(err)
+			}
+			articles = append(articles, a)
+		}
+		fmt.Println("200 SUCCESS")
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(200)
+		err = json.NewEncoder(w).Encode(articles)
+		if err != nil {
+			log.Fatalln(err)
+		}
+		return
+	}
+}
+
 func main() {
 	http.Handle("/", http.FileServer(http.Dir("./static")))
-	http.HandleFunc("/api/articles", handleArticle)
-	http.ListenAndServe(":2000", nil)
+	http.HandleFunc("/api/articles", handleArticleRoute)
+	http.HandleFunc("/api/articles/top", handleArticleTop)
+	http.ListenAndServe(":8080", nil)
 }
