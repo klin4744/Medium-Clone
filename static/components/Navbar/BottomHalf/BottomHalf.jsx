@@ -21,7 +21,7 @@ class BottomHalf extends React.Component {
       window.addEventListener('scroll', () => stickyBottom(component, 75));
    }
    componentWillUnmount() {
-      window.removeEventListener(stickyBottom);
+      window.removeEventListener('scroll',stickyBottom);
    }
    render() {
       let settings = {

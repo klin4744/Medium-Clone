@@ -226,7 +226,7 @@ func main() {
 			Five things that make Go fast by Dave Cheney
 			Discussion in golang-nuts mailing list`, 2, "https://miro.medium.com/max/3840/1*_MqLBkRmPSp3MUV6c1FEkQ.jpeg", "March 23, 2018", 3600,
 		}, {"Using Pre-Commit and Pre-Push Git Hooks in a React Project", 3, `One topic I have gotten more and more excited about throughout my software development career is quality! Perhaps I’ve been burned one too many times. Alas, I decided to test adding git hooks to a React project using the husky package. My goal was to make it so that, prior to either committing code or pushing to a git repository, both the eslint linter and jest test suite must run.
-		`, 1, "https://miro.medium.com/max/3840/1*_MqLBkRmPSp3MUV6c1FEkQ.jpeg", "March 23, 2018", 1200},
+		`, 1, "https://miro.medium.com/max/4200/1*xO6RQvFmAsRQQgod1Tk1Kg.jpeg", "March 23, 2018", 1200},
 	}
 	organizations := []organization{
 		{"Level Up Coding", "https://cdn-images-1.medium.com/max/952/1*txRrggvTHssimaGlCMZ2mg@2x.png", "https://levelup.gitconnected.com/"},
