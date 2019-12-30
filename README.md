@@ -114,6 +114,35 @@ Here's an image of the schema with arrows:
 
 <img src="./Schema.png" alt="schema">
 
-Next, I have to choose between a SQL and a NoSQL database. It makes a lot of sense to use a NoSQL database like MongoDB for an application like this because there is probably a heavier read to write ratio as users are more likely to load articles rather than write or edit them. But, in my particular case, a SQL database is a good choice as well. I don't have to optimize read times because I don't have a heavy focus on user to user interaction and, with my schema, I am not really loading much information per article. Also, if I use a SQL database, I can utilize relationships to have more structured data. In this case it'd be fine to go with either, but I'm opting in for SQL because the advantages of NoSQL do not outweigh the advantages of SQL in my particular approach of this medium clone.
+#### Database Selection
+
+It makes a lot of sense to use a NoSQL database like MongoDB for an application like this because there is probably a heavier read to write ratio as users are more likely to load articles rather than write or edit them. But, in my particular case, a SQL database is a good choice as well. I don't have to optimize read times because I don't have a heavy focus on user to user interaction and, with my schema, I am not really loading much information per article. Also, if I use a SQL database, I can utilize relationships to have more structured data. In this case it'd be fine to go with either, but I'm opting in for SQL because the advantages of NoSQL do not outweigh the advantages of SQL in my particular approach of this medium clone.
 
 I can also use an external storage sevice like AWS to store all my images, but I'll offload that and just use free stock photo image urls.
+
+#### Caching
+
+An 20 to 80 cache makes alot of sense here: 80% of the traffic to the website will likely be looking at 20% of the most popular articles which means caching the top 20% articles can greatly improve the user experience for the majority of our users
+
+#### Rate limiting
+
+To protect against attacks, we can rate limit a user's ability to make api calls limited by day. This protects against ddos attacks and is what Medium uses to push their premium membership.
+
+#### API Routes
+
+`
+// Articles
+GET /api/articles => Loads all of the articles an includes author and org information. If we set up caching, we only have to load all the articles on a fixed interval to update the cache
+
+-  Query params: search = top => Loads the top 4 articles based on total claps. This route isn't super necessary but isn't an expensive API call. If we set up our cache to save the top 20% articles based on claps, we can always just grab the top 4 items in our cache.
+   GET /api/articles/:articleId => loads an article by ID
+   POST /api/articles => Allows a user to post a new article, MUST BE LOGGED IN. This route will return the created article on a successful post
+   PUT /api/articles/:articleId => Allows a user to edit an article that they posted, MUST BE LOGGED IN. This route will return the article on a successful put.
+   DELETE /api/articles/:articleId => Allows a user to delete an article they posted, MUST BE LOGGED IN. Returns true if successful.
+
+// Users
+GET /api/user/:userId => loads information for given user, will mostly be used for authentication
+PUT /api/user/:userId => allows a user to update their account
+DELETE /api/user/:userId => allows a user to remove their account
+
+`
