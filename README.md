@@ -130,19 +130,18 @@ To protect against attacks, we can rate limit a user's ability to make api calls
 
 #### API Routes
 
-`
+```
 // Articles
 GET /api/articles => Loads all of the articles an includes author and org information. If we set up caching, we only have to load all the articles on a fixed interval to update the cache
-
--  Query params: search = top => Loads the top 4 articles based on total claps. This route isn't super necessary but isn't an expensive API call. If we set up our cache to save the top 20% articles based on claps, we can always just grab the top 4 items in our cache.
-   GET /api/articles/:articleId => loads an article by ID
-   POST /api/articles => Allows a user to post a new article, MUST BE LOGGED IN. This route will return the created article on a successful post
-   PUT /api/articles/:articleId => Allows a user to edit an article that they posted, MUST BE LOGGED IN. This route will return the article on a successful put.
-   DELETE /api/articles/:articleId => Allows a user to delete an article they posted, MUST BE LOGGED IN. Returns true if successful.
+   * Query params: search = top => Loads the top 4 articles based on total claps. This route isn't super necessary but isn't an expensive API call. If we set up our cache to save the top 20% articles based on claps, we can always just grab the top 4 items in our cache.
+GET /api/articles/:articleId => loads an article by ID
+POST /api/articles => Allows a user to post a new article, MUST BE LOGGED IN. This route will return the created article on a successful post
+PUT /api/articles/:articleId => Allows a user to edit an article that they posted, MUST BE LOGGED IN. This route will return the article on a successful put.
+DELETE /api/articles/:articleId => Allows a user to delete an article they posted, MUST BE LOGGED IN. Returns true if successful.
 
 // Users
 GET /api/user/:userId => loads information for given user, will mostly be used for authentication
 PUT /api/user/:userId => allows a user to update their account
 DELETE /api/user/:userId => allows a user to remove their account
 
-`
+```
