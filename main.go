@@ -22,7 +22,7 @@ type Article struct {
 	Articleimgurl      string
 	Dateposted         string
 	Claps              int
-	Topic 				 string
+	Topic              string
 	Authorimgurl       string
 	Authorname         string
 	Authoremail        string
@@ -78,7 +78,7 @@ func handleArticleRoute(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-func handleArticleTop(w http.ResponseWriter, req *http.Request){
+func handleArticleTop(w http.ResponseWriter, req *http.Request) {
 	if req.Method == "GET" {
 		db, err := sql.Open("postgres", connStr)
 		if err != nil {

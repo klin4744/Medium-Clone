@@ -1,0 +1,13 @@
+.PopContainer h3.place-text {
+   color: #e0e0e0;
+   font-size: 30px;
+   line-height: 30px;
+}
+.PopContainer p.author-text {
+   margin-top: 10px;
+   margin-bottom: 0;
+}
+.PopContainer p.time-text {
+   color: rgb(78, 78, 78, 0.62) !important;
+   font-size: 14px;
+}
