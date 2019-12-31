@@ -26,6 +26,7 @@ type article struct {
 	title          string
 	userid         int
 	content        string
+	topic          string
 	organizationid int
 	imgurl         string
 	dateposted     string
@@ -172,7 +173,7 @@ func main() {
 		You can see in the complete Repository with other features:
 		script to create plugins scaffold
 		makefile to build all and clean all
-		test for standard implementation`, 3, "https://miro.medium.com/max/1718/1*qVKB83GozPulENVR-rMV6Q.jpeg", "February 20, 2019", 811}, {
+		test for standard implementation`, "JavaScript", 3, "https://miro.medium.com/max/1718/1*qVKB83GozPulENVR-rMV6Q.jpeg", "February 20, 2019", 811}, {
 			"Why goroutines are not lightweight threads?", 1, `GoLang is gaining incredible popularity these days.
 			One of the main reasons for that is the simple and lightweight concurrency in the form of goroutines and channels that it offers to the developers.
 			Concurrency has existed since long ago in the form of Threads which are used in almost all the applications these days.
@@ -224,9 +225,9 @@ func main() {
 			Concurrency is not parallelism by Rob Pike
 			Analysis of Go runtime Scheduler
 			Five things that make Go fast by Dave Cheney
-			Discussion in golang-nuts mailing list`, 2, "https://miro.medium.com/max/3840/1*_MqLBkRmPSp3MUV6c1FEkQ.jpeg", "March 23, 2018", 3600,
+			Discussion in golang-nuts mailing list`, "JavaScript", 2, "https://miro.medium.com/max/3840/1*_MqLBkRmPSp3MUV6c1FEkQ.jpeg", "March 23, 2018", 3600,
 		}, {"Using Pre-Commit and Pre-Push Git Hooks in a React Project", 3, `One topic I have gotten more and more excited about throughout my software development career is quality! Perhaps I’ve been burned one too many times. Alas, I decided to test adding git hooks to a React project using the husky package. My goal was to make it so that, prior to either committing code or pushing to a git repository, both the eslint linter and jest test suite must run.
-		`, 1, "https://miro.medium.com/max/4200/1*xO6RQvFmAsRQQgod1Tk1Kg.jpeg", "March 23, 2018", 1200},
+		`, "JavaScript", 1, "https://miro.medium.com/max/4200/1*xO6RQvFmAsRQQgod1Tk1Kg.jpeg", "March 23, 2018", 1200},
 	}
 	organizations := []organization{
 		{"Level Up Coding", "https://cdn-images-1.medium.com/max/952/1*txRrggvTHssimaGlCMZ2mg@2x.png", "https://levelup.gitconnected.com/"},

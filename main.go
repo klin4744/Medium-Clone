@@ -98,7 +98,7 @@ func handleArticleTop(w http.ResponseWriter, req *http.Request) {
 								ON article.userid = author.id
 							  ORDER BY
 							  	article.claps DESC
-							  LIMIT 3
+							  LIMIT 4
 
 		`
 		rows, err := db.Query(sqlStatement)
