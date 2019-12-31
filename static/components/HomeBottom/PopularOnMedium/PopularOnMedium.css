@@ -8,6 +8,8 @@
    margin: 7px 0;
    padding: 15px;
    width: 80%;
+   height: 85vh;
+   background-color: white;
 }
 .PopularOnMedium #title-text {
    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -15,4 +17,10 @@
    height: 2.5rem;
    display: inline-block;
    width: 69%;
+}
+
+.PopularOnMedium.sticky-2 {
+   position: fixed;
+   top: 80px;
+   max-width: 456px;
 }
