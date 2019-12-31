@@ -7,6 +7,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/gorilla/mux"
+
 	_ "github.com/lib/pq"
 )
 
@@ -78,14 +80,32 @@ func handleArticleRoute(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-func handleArticleTop(w http.ResponseWriter, req *http.Request) {
+func handleSingleArticle(w http.ResponseWriter, req *http.Request) {
 	if req.Method == "GET" {
 		db, err := sql.Open("postgres", connStr)
 		if err != nil {
 			log.Fatalln(err)
 		}
 		defer db.Close()
-		sqlStatement := `
+		vars := mux.Vars(req)
+		uri := vars["id"]
+		var sqlStatement string
+		sqlStatement = `
+		SELECT article.id, article.title, article.userid, article.content,
+		article.organizationid, article.imgurl as articleImgURL, article.dateposted,
+		article.claps, article.topic, author.imgurl as authorImgURL, author.name as authorName,
+		author.emailaddress as authorEmail, organization.imgurl as organizationImgURL,
+		organization.name as orgname
+		FROM  article
+		FULL JOIN  organization
+			ON article.organizationid = organization.id
+		FULL JOIN author
+			ON article.userid = author.id
+		WHERE article.id = $1
+`
+		rows, err := db.Query(sqlStatement, uri)
+		if uri == "top" {
+			sqlStatement = `
 							  SELECT article.id, article.title, article.userid, article.content,
 							  article.organizationid, article.imgurl as articleImgURL, article.dateposted,
 							  article.claps, article.topic, author.imgurl as authorImgURL, author.name as authorName,
@@ -101,7 +121,8 @@ func handleArticleTop(w http.ResponseWriter, req *http.Request) {
 							  LIMIT 4
 
 		`
-		rows, err := db.Query(sqlStatement)
+			rows, err = db.Query(sqlStatement)
+		}
 		defer rows.Close()
 		if err != nil {
 			log.Fatalln(err)
@@ -124,11 +145,14 @@ func handleArticleTop(w http.ResponseWriter, req *http.Request) {
 		}
 		return
 	}
+
 }
 
 func main() {
-	http.Handle("/", http.FileServer(http.Dir("./static")))
-	http.HandleFunc("/api/articles", handleArticleRoute)
-	http.HandleFunc("/api/articles/top", handleArticleTop)
+	rtr := mux.NewRouter()
+	http.Handle("/", rtr)
+	rtr.Handle("/", http.FileServer(http.Dir("./static")))
+	rtr.HandleFunc("/api/articles", handleArticleRoute)
+	rtr.HandleFunc("/api/articles/{id:.+}", handleSingleArticle)
 	http.ListenAndServe(":8080", nil)
 }
