@@ -11,3 +11,7 @@
    color: rgb(78, 78, 78, 0.62) !important;
    font-size: 14px;
 }
+
+.PopContainer .content-text:hover {
+   cursor: pointer !important;
+}

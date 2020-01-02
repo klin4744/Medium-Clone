@@ -4,13 +4,16 @@ import './HomeBottom.css';
 import PopularOnMedium from './PopularOnMedium/PopularOnMedium';
 
 export default function HomeBottom(props) {
+   const handleClick = id => {
+      props.history.push(`/articles/${id}`);
+   };
    return (
       <div className='row HomeBottom'>
          <div className='col-7'>
-            <ArticleList articles={props.articles} />
+            <ArticleList handleClick={handleClick} articles={props.articles} />
          </div>
          <div className='col-5'>
-            <PopularOnMedium />
+            <PopularOnMedium handleClick={handleClick} />
          </div>
       </div>
    );

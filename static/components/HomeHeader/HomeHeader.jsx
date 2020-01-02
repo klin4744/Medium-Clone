@@ -4,11 +4,15 @@ import Display from './Display/Display.jsx';
 import './HomeHeader.css';
 
 function HomeHeader(props) {
+   const handleClick = id => {
+      props.history.push(`/articles/${id}`);
+   };
    return (
       <div className='row HomeHeader'>
          {props.articles.length ? (
             <MediumArticleHolder
                size='4'
+               handleClick={() => handleClick(props.articles[0].Id)}
                imgUrl={props.articles[0].Articleimgurl}
                title={props.articles[0].Title}
                content={props.articles[0].Content}
@@ -20,10 +24,11 @@ function HomeHeader(props) {
          ) : (
             <></>
          )}
-         <Display articles={props.articles} />
+         <Display handleClick={handleClick} articles={props.articles} />
          {props.articles.length ? (
             <MediumArticleHolder
                size='4'
+               handleClick={() => handleClick(props.articles[2].Id)}
                imgUrl={props.articles[2].Articleimgurl}
                title={props.articles[2].Title}
                content={props.articles[2].Content}

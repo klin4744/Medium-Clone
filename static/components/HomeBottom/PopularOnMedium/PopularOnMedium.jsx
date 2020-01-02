@@ -40,7 +40,11 @@ export default function PopularOnMedium() {
       <div className='container PopularOnMedium' id='PopularOnMedium'>
          <h3 id='title-text'>Popular On Medium</h3>
          {topArticles.map((article, idx) => (
-            <PopContainer {...article} idx={idx} />
+            <PopContainer
+               handleClick={() => props.handleClick(article.Id)}
+               {...article}
+               idx={idx}
+            />
          ))}
          <BottomPop />
       </div>

@@ -6,7 +6,10 @@ export default function ArticleList(props) {
    return (
       <ul className='ArticleList'>
          {props.articles.map(article => (
-            <Article {...article} />
+            <Article
+               handleClick={() => props.handleClick(article.Id)}
+               {...article}
+            />
          ))}
       </ul>
    );

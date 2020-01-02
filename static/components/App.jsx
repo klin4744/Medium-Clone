@@ -18,24 +18,22 @@ export default function App() {
       }
    }, [articles]);
    return (
-      <div>
+      <Router>
          <Navbar />
-         <Router>
-            <Switch>
-               <Route
-                  exact
-                  path='/'
-                  render={navProps => (
-                     <>
-                        <HomeHeader {...navProps} articles={articles} />
-                        <HomeBottom {...navProps} articles={articles} />
-                     </>
-                  )}
-               />
-               <Route exact path='/articles/:id' component={SingleArticle} />
-            </Switch>
-            <Link to='/articles/1'>Go to 1</Link>
-         </Router>
-      </div>
+         <Switch>
+            <Route
+               exact
+               path='/'
+               render={navProps => (
+                  <>
+                     <HomeHeader {...navProps} articles={articles} />
+                     <HomeBottom {...navProps} articles={articles} />
+                  </>
+               )}
+            />
+            <Route exact path='/articles/:id' component={SingleArticle} />
+         </Switch>
+         <Link to='/articles/1'>Go to 1</Link>
+      </Router>
    );
 }

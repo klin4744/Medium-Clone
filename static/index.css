@@ -16,3 +16,6 @@ body {
 .bg-white {
    background-color: white !important;
 }
+.content-text:hover {
+   cursor: pointer !important;
+}

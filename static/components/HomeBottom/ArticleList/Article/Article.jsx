@@ -8,8 +8,10 @@ export default function Article(props) {
             <div className='col-8'>
                <div className='container'>
                   <small className='topic-text'>{props.Topic}</small>
-                  <h3>{props.Title}</h3>
-                  <p>{props.Content.substring(0, 300) + '...'}</p>
+                  <h3 onClick={props.handleClick}>{props.Title}</h3>
+                  <p className='content-text' onClick={props.handleClick}>
+                     {props.Content.substring(0, 300) + '...'}
+                  </p>
                   <br></br>
                   <p className='author-text'>
                      {props.Authorname} in {props.Orgname}

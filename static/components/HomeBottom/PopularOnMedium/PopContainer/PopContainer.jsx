@@ -8,7 +8,9 @@ export default function PopContainer(props) {
             <h3 className='place-text'>{'0' + (props.idx + 1)}</h3>
          </div>
          <div className='col-10'>
-            <h3>{props.Title}</h3>
+            <h3 className='content-text' onClick={props.handleClick}>
+               {props.Title}
+            </h3>
             <p className='author-text'>
                {props.Authorname} in {props.Orgname}
             </p>

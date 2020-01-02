@@ -26,3 +26,6 @@
    color: black;
    margin-bottom: 0px;
 }
+.Article .content-text:hover {
+   cursor: pointer !important;
+}

@@ -1,16 +1,19 @@
-.MediumArticleHolder img{
+.MediumArticleHolder img {
    height: 150px !important;
    margin-bottom: 16px;
    width: auto;
 }
-.MediumArticleHolder h3{
+.MediumArticleHolder h3 {
    margin-top: 10px;
    font-size: 17px;
    font-family: 'Proza Libre', sans-serif;
    font-weight: 600 !important;
 }
 
-.MediumArticleHolder p{
-   color: rgb(78, 78, 78,0.62) !important;
+.MediumArticleHolder p {
+   color: rgb(78, 78, 78, 0.62) !important;
    font-size: 15px;
+}
+.MediumArticleHolder .content-text:hover {
+   cursor: pointer !important;
 }

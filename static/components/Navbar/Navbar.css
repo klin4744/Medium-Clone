@@ -1,26 +1,30 @@
-.Navbar{
+.Navbar {
    height: 75px;
 }
 
-.Navbar .navbar-brand{
+.Navbar .navbar-brand {
    font-weight: 700;
    font-size: 1.9em;
 }
-.Navbar a.btn{
-   color: rgba(0,0,0,.84);
-   border-color: rgba(0,0,0,.54);
+.Navbar .navbar-brand:hover {
+   cursor: pointer;
+}
+.Navbar a.btn {
+   color: rgba(0, 0, 0, 0.84);
+   border-color: rgba(0, 0, 0, 0.54);
    font-size: 14px;
 }
 
-.Navbar a.btn:hover{
-   color: rgba(0,0,0);
-   border-color: rgba(0,0,0);
+.Navbar a.btn:hover {
+   color: rgba(0, 0, 0);
+   border-color: rgba(0, 0, 0);
    background-color: transparent;
+   cursor: pointer;
 }
-.Navbar i.fa{
-   color: rgba(0,0,0,.54);
+.Navbar i.fa {
+   color: rgba(0, 0, 0, 0.54);
 }
-.Navbar i.fa:hover{
-   color: rgba(0,0,0);
+.Navbar i.fa:hover {
+   color: rgba(0, 0, 0);
    cursor: pointer;
 }
