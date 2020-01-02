@@ -15,7 +15,10 @@ export default function Article(props) {
                      {props.Authorname} in {props.Orgname}
                   </p>
                   <p className='d-inline-block text-left'>
-                     {props.Dateposted + ' • ' + props.Content.length%22 + ' min read'}
+                     {props.Dateposted +
+                        ' • ' +
+                        (props.Content.length % 22) +
+                        ' min read'}
                   </p>
                </div>
             </div>

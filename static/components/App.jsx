@@ -3,7 +3,7 @@ import Navbar from './Navbar/Navbar';
 import HomeHeader from './HomeHeader/HomeHeader.jsx';
 import HomeBottom from './HomeBottom/HomeBottom';
 import SingleArticle from './SingleArticle/SingleArticle';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function App() {
@@ -34,6 +34,7 @@ export default function App() {
                />
                <Route exact path='/articles/:id' component={SingleArticle} />
             </Switch>
+            <Link to='/articles/1'>Go to 1</Link>
          </Router>
       </div>
    );

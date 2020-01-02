@@ -1,0 +1,22 @@
+.SingleArticle .article-img {
+   width: 100%;
+}
+
+.SingleArticle .author-img {
+   width: 48px;
+   height: 48px;
+   border-radius: 50%;
+}
+
+.SingleArticle p {
+   font-size: 22px;
+   line-height: 33px;
+}
+
+.SingleArticle .date {
+   color: rgb(78, 78, 78, 0.54);
+}
+.SingleArticle .pl-4 {
+   line-height: 20px;
+   font-family: 'Proza Libre', sans-serif !important;
+}
