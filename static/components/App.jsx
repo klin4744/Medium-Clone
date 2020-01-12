@@ -33,7 +33,6 @@ export default function App() {
             />
             <Route exact path='/articles/:id' component={SingleArticle} />
          </Switch>
-         <Link to='/articles/1'>Go to 1</Link>
       </Router>
    );
 }

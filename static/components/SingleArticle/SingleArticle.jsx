@@ -40,7 +40,8 @@ export default function SingleArticle() {
                   </div>
                   <div className='col-3 ml-auto'>
                      <i className='fa fa-twitter'></i>
-                     <i className='fa fa-fb'></i>
+                     <i className='fa fa-facebook-square'></i>
+                     <i className='fa fa-bookmark' aria-hidden='true'></i>
                   </div>
                </div>
                <img className='article-img' src={article.Articleimgurl}></img>

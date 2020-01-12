@@ -20,3 +20,8 @@
    line-height: 20px;
    font-family: 'Proza Libre', sans-serif !important;
 }
+
+.SingleArticle .fa {
+   font-size: 30px;
+   margin-left: 8px;
+}
